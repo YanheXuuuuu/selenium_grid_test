@@ -8,7 +8,7 @@
 version: "3"
 services:
   chrome:
-    image: seleniarm/node-chromium:4.0.0-20211111
+    image: selenuium/node-chromium:95.0
     depends_on:
       - selenium-hub
     environment:
@@ -21,7 +21,7 @@ services:
     #  - "6900:5900"
 
   firefox:
-    image: seleniarm/node-firefox:4.0.0-20211111
+    image: selenium/node-firefox:94.0
     depends_on:
       - selenium-hub
     environment:
@@ -30,9 +30,19 @@ services:
       - SE_EVENT_BUS_SUBSCRIBE_PORT=4443
       - SE_NODE_MAX_SESSION=4
       - SE_NODE_MAX_INSTANCES=4
-
+  edge:
+    image: selenium/node-edge:95.0
+    depends_on:
+      - selenium-hub
+    environment:
+      - SE_EVENT_BUS_HOST=selenium-hub
+      - SE_EVENT_BUS_PUBLISH_PORT=4442
+      - SE_EVENT_BUS_SUBSCRIBE_PORT=4443
+      - SE_NODE_MAX_SESSION=4
+      - SE_NODE_MAX_INSTANCES=4
+      
   selenium-hub:
-    image: seleniarm/hub:4.0.0-20211111
+    image: selenium/hub:4.1.0
     container_name: selenium-hub
     ports:
       - "4442:4442"
