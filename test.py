@@ -25,7 +25,7 @@ if __name__ == '__main__':
     caps = {'browserName': os.getenv('BROWSER', 'chrome')}
     print("start",time.time(),caps)
     browser = webdriver.Remote(
-            command_executor='http://localhost:4444/wd/hub',
+            command_executor='http://34.204.76.14:4444/wd/hub',
             #command_executor="http://0.0.0.0:4444/wd/hub",
             desired_capabilities=caps,
             options=set_chrome_options()
