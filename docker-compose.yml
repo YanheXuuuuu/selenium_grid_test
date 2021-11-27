@@ -8,7 +8,7 @@
 version: "3"
 services:
   chrome:
-    image: selenium/node-chromium:95.0
+    image: selenium/node-chrome:95.0
     depends_on:
       - selenium-hub
     environment:
